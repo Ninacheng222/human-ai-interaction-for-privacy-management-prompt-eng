@@ -10,7 +10,7 @@ if __name__ == "__main__":
     input_json_first = {
         "conversion_type": "first",
         "ocr_json": data,
-        "user_input":{},
+        "user_input":"",
         "conversation_history":[]
     }
 
