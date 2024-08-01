@@ -42,7 +42,7 @@ def init_conversation(ocr_input):
         {"role": "user", "content": input_doc} # first input doc that generated from OCR
     ]
     response_from_gpt = chat_with_gpt(conversation_history)
-    print("\nGPT:\n", response_from_gpt)
+    print("\nGPT:\n", response_from_gpt, "\n")
 
     conversation_history.append({"role": "assistant", "content": response_from_gpt})
 
@@ -67,9 +67,9 @@ def continued_conversation(conversation_history, user_input):
     conversation_history.append({"role": "assistant", "content": response_from_gpt}) # role is assistant
     
     # print the response
-    print("============================")
+    print("\n============================")
     print("User input:", user_input)
-    print(response_from_gpt)
+    print("\nGPT:\n", response_from_gpt, "\n")
 
     return conversation_history, response_from_gpt
 
