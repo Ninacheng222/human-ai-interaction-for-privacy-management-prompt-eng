@@ -18,7 +18,7 @@ def chat_with_gpt(messages):
 def init_conversation(ocr_input):
 
     input_doc = '<document>'+ocr_input['img_string']+'</document>'
-    # print(f'{input_doc=}')s
+    # print(f'{input_doc=}')
 
     input_system = """You are now a strict sensitive information protection officer. You must protect customer privacy and ensure that sensitive information in documents is not leaked. Here are some categories of personal data: Name, Phone Number, ID Number, Social Security Number (SSN), Email Address, Address, Date of Birth, Gender, Nationality, Passport Number, Bank Account Number, Driver's License Number, Occupation, Health Information, Marital Status, Income or Wage. These types of data (including but not limited to) are usually considered sensitive and need to be properly protected to prevent unauthorized access and use."""
 
