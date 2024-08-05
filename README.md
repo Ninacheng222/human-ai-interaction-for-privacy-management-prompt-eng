@@ -19,5 +19,5 @@ result = prompt(input_json)
 ### You can run `test.py` to see example
 
 ```
-python prompt-eng/test.py
+python prompt_eng/test.py
 ```
