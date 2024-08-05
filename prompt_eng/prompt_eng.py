@@ -76,20 +76,6 @@ def continued_conversation(conversation_history, user_input):
 
 def post_processing(response_from_gpt, ocr_input):
 
-    # masks = []
-
-    # for i in response_from_gpt.split('\n'):
-
-    #     words = i.split('- ')[-1].split(': ')[-1]
-    #     print(words)
-
-    #     for i in range(len(ocr_input['ocr_result'])):
-    #         if words in ocr_input['ocr_result'][i]['text']:
-    #             print(ocr_input['ocr_result'][i]['bbox'])
-
-    #             masks.append({"top_left": [ocr_input['ocr_result'][i]['bbox'][0], ocr_input['ocr_result'][i]['bbox'][3]],
-    #                  "bottom_right": [ocr_input['ocr_result'][i]['bbox'][2], ocr_input['ocr_result'][i]['bbox'][1]]})
-
     masks = []
 
     for line in response_from_gpt.split('\n'):
