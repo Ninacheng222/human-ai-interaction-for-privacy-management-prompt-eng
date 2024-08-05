@@ -3,7 +3,7 @@ from prompt_eng import prompt
 if __name__ == "__main__":
 
     import json
-    f = open('../sample_data/sample.json')
+    f = open('sample_data/sample.json')
     data = json.load(f)
     f.close()
 

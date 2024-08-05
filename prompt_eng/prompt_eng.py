@@ -76,19 +76,45 @@ def continued_conversation(conversation_history, user_input):
 
 def post_processing(response_from_gpt, ocr_input):
 
+    # masks = []
+
+    # for i in response_from_gpt.split('\n'):
+
+    #     words = i.split('- ')[-1].split(': ')[-1]
+    #     print(words)
+
+    #     for i in range(len(ocr_input['ocr_result'])):
+    #         if words in ocr_input['ocr_result'][i]['text']:
+    #             print(ocr_input['ocr_result'][i]['bbox'])
+
+    #             masks.append({"top_left": [ocr_input['ocr_result'][i]['bbox'][0], ocr_input['ocr_result'][i]['bbox'][3]],
+    #                  "bottom_right": [ocr_input['ocr_result'][i]['bbox'][2], ocr_input['ocr_result'][i]['bbox'][1]]})
+
     masks = []
 
-    for i in response_from_gpt.split('\n'):
-
-        words = i.split('- ')[-1].split(': ')[-1]
+    for line in response_from_gpt.split('\n'):
+        words = line.split('- ')[-1].split(': ')[-1]
         print(words)
 
         for i in range(len(ocr_input['ocr_result'])):
-            if words in ocr_input['ocr_result'][i]['text']:
-                print(ocr_input['ocr_result'][i]['bbox'])
+            text = ocr_input['ocr_result'][i]['text']
+            start_index = text.find(words)
+            if start_index != -1:
+                end_index = start_index + len(words)
 
-                masks.append({"top_left": [ocr_input['ocr_result'][i]['bbox'][0], ocr_input['ocr_result'][i]['bbox'][3]],
-                     "bottom_right": [ocr_input['ocr_result'][i]['bbox'][2], ocr_input['ocr_result'][i]['bbox'][1]]})
+                # the start and the end proportion of words in text
+                start_proportion = start_index / len(text)
+                end_proportion = end_index / len(text)
+
+                # calculate new bounding box based on the proportion
+                bbox = ocr_input['ocr_result'][i]['bbox']
+                bbox_width = bbox[2] - bbox[0]
+                new_bbox_left = bbox[0] + start_proportion * bbox_width
+                new_bbox_right = bbox[0] + end_proportion * bbox_width
+
+                print(bbox)
+                masks.append({"top_left": [new_bbox_left, bbox[3]],
+                            "bottom_right": [new_bbox_right, bbox[1]]})
     
     return masks
 
