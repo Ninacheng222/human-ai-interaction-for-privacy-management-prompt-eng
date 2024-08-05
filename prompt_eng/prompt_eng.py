@@ -95,8 +95,8 @@ def post_processing(response_from_gpt, ocr_input):
                 # calculate new bounding box based on the proportion
                 bbox = ocr_input['ocr_result'][i]['bbox']
                 bbox_width = bbox[2] - bbox[0]
-                new_bbox_left = bbox[0] + start_proportion * bbox_width
-                new_bbox_right = bbox[0] + end_proportion * bbox_width
+                new_bbox_left = round(bbox[0] + start_proportion * bbox_width, 1)
+                new_bbox_right = round(bbox[0] + end_proportion * bbox_width, 1)
 
                 print(bbox)
                 masks.append({"top_left": [new_bbox_left, bbox[3]],
