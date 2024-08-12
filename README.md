@@ -17,7 +17,10 @@ result = prompt(input_json)
 ```
 
 ### You can run `test.py` to see example
+- First put the testing JSON file under `/sample_data` folder
+- Then run the script with the filename as an argument
 
 ```
-python prompt_eng/test.py
+python prompt_eng/test.py <test file name>
+python prompt_eng/test.py sample.json
 ```

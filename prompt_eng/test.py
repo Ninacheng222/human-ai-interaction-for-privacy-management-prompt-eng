@@ -1,9 +1,14 @@
 from prompt_eng import prompt
+import argparse
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('filename', type=str, help='The JSON file to process')
+    args = parser.parse_args()
+    # print(args)
 
     import json
-    f = open('sample_data/sample.json')
+    f = open('sample_data/'+args.filename)
     data = json.load(f)
     f.close()
 
