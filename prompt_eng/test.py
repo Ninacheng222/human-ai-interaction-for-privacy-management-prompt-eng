@@ -22,12 +22,12 @@ if __name__ == "__main__":
     result = prompt(input_json_first)
     print("frist result:", result[0]['masks'])
     
-    # input_json_continued = {
-    #     "conversion_type": "continued",
-    #     "ocr_json": data['pages'][0],
-    #     "user_input": "name and adress only",
-    #     "conversation_history": result[0]['conversation_history']
-    # }
+    input_json_continued = {
+        "conversion_type": "continued",
+        "ocr_json": data['pages'][0],
+        "user_input": """Also hide "123 Maple Street", and ”Springfield, IL 62704" separately while having the original address""", #"name and adress only",
+        "conversation_history": result[0]['conversation_history']
+    }
     
-    # result = prompt(input_json_continued)
-    # print("second result:", result[0]['masks'])
+    result = prompt(input_json_continued)
+    print("second result:", result[0]['masks'])

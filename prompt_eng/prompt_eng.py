@@ -33,12 +33,23 @@ def init_conversation(ocr_input):
     No explanation is needed.
     """
 
+    duplicate_info = """If a document contains duplicate sensitive information appearing in multiple different positions, keep all of them without merging.
+    For example, you might see a paragraph in the document that shows: '405 Hilgard Avenue Los' 'Angeles, California, 90095'
+    And another paragraph shows: '405 Hilgard Avenue, Los Angeles, California, 90095' Please keep both.
+
+    You need to list out the sensitive information like this:
+    "- Address: 405 Hilgard Avenue, Los Angeles, California, 90095
+    - Address: 405 Hilgard Avenue
+    - Address: Los Angeles, California, 90095"
+    """
+
     input_text = """Here is a document. Identify the text containing sensitive information and list it with bullet points, like this: "-Name: Amy, -SSN: 123456789." No explanation needed:"""
 
     # initialize the conversation history
     conversation_history = [
         {"role": "system", "content": input_system},  # system prompt
         {"role": "system", "content": positive_examples},
+        {"role": "system", "content": duplicate_info},
         {"role": "user", "content": input_text},
         {"role": "user", "content": input_doc} # first input doc that generated from OCR
     ]
