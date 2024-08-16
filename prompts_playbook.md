@@ -8,7 +8,7 @@ We gonna demo with the following two sample files.
 
 Try:
 ```
-name and adress only
+name and institution only
 ```
 
 ---

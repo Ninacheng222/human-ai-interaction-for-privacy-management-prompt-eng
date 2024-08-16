@@ -19,7 +19,7 @@ result = prompt(input_json)
 ### You can run `test.py` to see example
 - First put the testing JSON file under `/sample_data` folder
 - (Optional) You can customize your user prompt in `test.py` for multi-turn dialogue
-    - for example, "name and adress only" for `BudgetRequestSummary.json`
+    - for example, "name and institution only" for `BudgetRequestSummary.json`
 - Then run the script with the filename as an argument
 
 ```
