@@ -1,6 +1,7 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
+import logging
 
 load_dotenv() # load API key
 
@@ -19,7 +20,7 @@ def chat_with_gpt(messages):
 def init_conversation(ocr_input):
 
     input_doc = '<document>'+ocr_input['img_string']+'</document>'
-    # print(f'{input_doc=}')
+    # logging.info(f'{input_doc=}')
 
     input_system = """You are now a strict sensitive information protection officer. You must protect customer privacy and ensure that sensitive information in documents is not leaked. Here are some categories of personal data: Name, Phone Number, ID Number, Social Security Number (SSN), Email Address, Address, Date of Birth, Gender, Nationality, Passport Number, Bank Account Number, Driver's License Number, Occupation, Health Information, Marital Status, Income or Wage. These types of data (including but not limited to) are usually considered sensitive and need to be properly protected to prevent unauthorized access and use."""
 
@@ -43,7 +44,7 @@ def init_conversation(ocr_input):
         {"role": "user", "content": input_doc} # first input doc that generated from OCR
     ]
     response_from_gpt = chat_with_gpt(conversation_history)
-    print("\nGPT:\n", response_from_gpt, "\n")
+    logging.info(f"\nGPT:\n{response_from_gpt}\n")
 
     conversation_history.append({"role": "assistant", "content": response_from_gpt})
 
@@ -59,7 +60,7 @@ def continued_conversation(conversation_history, user_input):
 
     # add user input prompts to conversation history
     conversation_history.append({"role": "user", "content": user_input})
-    # print(f'{conversation_history=}')
+    # logging.info(f'{conversation_history=}')
 
     # get response from ChatGPT
     response_from_gpt = chat_with_gpt(conversation_history)
@@ -68,9 +69,9 @@ def continued_conversation(conversation_history, user_input):
     conversation_history.append({"role": "assistant", "content": response_from_gpt}) # role is assistant
     
     # print the response
-    print("\n============================")
-    print("User input:", user_input)
-    print("\nGPT:\n", response_from_gpt, "\n")
+    logging.info("\n============================")
+    logging.info(f"User input:{user_input}")
+    logging.info(f"\nGPT:\n{response_from_gpt}\n")
 
     return conversation_history, response_from_gpt
 
@@ -81,7 +82,7 @@ def post_processing(response_from_gpt, ocr_input):
 
     for line in response_from_gpt.split('\n'):
         words = line.split('- ')[-1].split(': ')[-1]
-        print(words)
+        logging.info(words)
 
         for i in range(len(ocr_input['ocr_result'])):
             text = ocr_input['ocr_result'][i]['text']
@@ -99,7 +100,7 @@ def post_processing(response_from_gpt, ocr_input):
                 new_bbox_left = round(bbox[0] + start_proportion * bbox_width, 1)
                 new_bbox_right = round(bbox[0] + end_proportion * bbox_width, 1)
 
-                print(bbox)
+                logging.info(bbox)
                 masks.append({"top_left": [new_bbox_left, bbox[3]],
                             "bottom_right": [new_bbox_right, bbox[1]]})
     
