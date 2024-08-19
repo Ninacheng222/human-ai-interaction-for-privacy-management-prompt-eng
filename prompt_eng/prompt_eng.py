@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 import os
 import logging
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 load_dotenv() # load API key
 
 client = OpenAI(
@@ -111,9 +114,10 @@ def post_processing(response_from_gpt, ocr_input):
                 new_bbox_left = round(bbox[0] + start_proportion * bbox_width, 1)
                 new_bbox_right = round(bbox[0] + end_proportion * bbox_width, 1)
 
-                logging.info(bbox)
-                masks.append({"top_left": [new_bbox_left, bbox[3]],
-                            "bottom_right": [new_bbox_right, bbox[1]]})
+                logging.info(f"original bbox:, {bbox}")
+                logging.info(f"adjusted bbox: {new_bbox_left, bbox[1], new_bbox_right, bbox[3]}")
+                masks.append({"top_left": [new_bbox_left, bbox[1]],
+                            "bottom_right": [new_bbox_right, bbox[3]]})
     
     return masks
 
