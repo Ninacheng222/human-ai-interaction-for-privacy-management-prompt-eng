@@ -47,7 +47,7 @@ def init_conversation(ocr_input):
     - Address: Los Angeles, California, 90095"
     """
 
-    input_text = """Here is a document. Identify the text containing sensitive information and list it with bullet points, like this: "-Name: Amy, -SSN: 123456789." No explanation needed:"""
+    input_text = """Here is a document. Identify the text containing sensitive information and list it with bullet points, like this: "- Name: Amy, - SSN: 123456789." No explanation needed:"""
 
     # initialize the conversation history
     conversation_history = [

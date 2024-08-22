@@ -15,7 +15,27 @@ name and institution only
 
 ## For `California-Standard-Residential-Lease-Agreement-Sophia.json`
 
-You can try the following prompts in turn:
+Try:
+```
+also add two-line format address aditionally
+```
+
+You will get the following result:
+```
+============================
+Turn 1:
+User input: also add two-line format address aditionally
+- Name: Olivia Johnson
+- Name: Noah Davis
+- Address: 123 Maple Street, Springfield, IL 62704
+- Address: 123 Maple Street
+- Address: Springfield, IL 62704
+- Name: James Taylor
+- Name: Isabella Miller
+============================
+```
+
+The back-up prompts you can try in turn:
 ```
 1. Also hide "123 Maple Street", and ”Springfield, IL 62704" separately while having the original address
 
@@ -29,95 +49,3 @@ You can try the following prompts in turn:
 - try 2
 - try 2 -> 3
 - try 2 -> 3 -> 1
-
-### For example:
-
-1. First user prompt:
-    ```
-    Also hide "123 Maple Street", and ”Springfield, IL 62704" separately
-    ```
-
-    You will get the following result:
-    ```
-    ============================
-    Turn 1:
-    User input: Also hide "123 Maple Street", and ”Springfield, IL 62704" separately
-    - Name: Olivia Johnson
-    - Name: Noah Davis
-    - Address: 123 Maple Street, Springfield, IL 62704
-    - Address: 123 Maple Street
-    - Address: Springfield, IL 62704
-    - Name: James Taylor
-    - Name: Isabella Miller
-    ============================
-    Goodbye :)
-
-    ```
-
-2. There's a chance it didn't work well, second prompt:
-    ```
-    Keep the original address
-    ```
-
-    You will get the following result:
-    ```
-    ============================
-    Turn 1:
-    User input: Also hide "123 Maple Street", and ”Springfield, IL 62704" separately
-    - Name: Olivia Johnson
-    - Name: Noah Davis
-    - Address: 123 Maple Street
-    - Address: Springfield, IL 62704
-    - Name: James Taylor
-    - Name: Isabella Miller
-    ============================
-    Turn 2:
-    User input: Keep the original address
-    - Name: Olivia Johnson
-    - Name: Noah Davis
-    - Address: 123 Maple Street, Springfield, IL 62704
-    - Address: 123 Maple Street
-    - Address: Springfield, IL 62704
-    - Name: James Taylor
-    - Name: Isabella Miller
-    ============================
-    Goodbye :)
-    ```
-
-3. Third prompt:
-    ```
-    Also hide "123 Maple Street", and ”Springfield, IL 62704" separately while having the original address
-    ```
-    You will get the following result:
-    ```
-    ============================
-    Turn 1:
-    User input: Also hide "123 Maple Street", and ”Springfield, IL 62704" separately
-    - Name: Olivia Johnson
-    - Name: Noah Davis
-    - Address: 123 Maple Street
-    - Address: Springfield, IL 62704
-    - Name: James Taylor
-    - Name: Isabella Miller
-    ============================
-    Turn 2:
-    User input: Keep the original address
-    - Name: Olivia Johnson
-    - Name: Noah Davis
-    - Address: 123 Maple Street, Springfield, IL 62704
-    - Name: James Taylor
-    - Name: Isabella Miller
-    ============================
-    Turn 3:
-    User input: Also hide "123 Maple Street", and ”Springfield, IL 62704" separately while having the original address
-    - Name: Olivia Johnson
-    - Name: Noah Davis
-    - Address: 123 Maple Street, Springfield, IL 62704
-    - Address: 123 Maple Street
-    - Address: Springfield, IL 62704
-    ...
-    - Name: James Taylor
-    - Name: Isabella Miller
-    ============================
-    Goodbye :)
-    ```
