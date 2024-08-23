@@ -102,6 +102,7 @@ def post_processing(response_from_gpt, ocr_input):
             text = ocr_input['ocr_result'][i]['text']
             start_index = text.find(words)
             if start_index != -1:
+                logging.info(text)
                 end_index = start_index + len(words)
 
                 # the start and the end proportion of words in text
@@ -114,7 +115,7 @@ def post_processing(response_from_gpt, ocr_input):
                 new_bbox_left = round(bbox[0] + start_proportion * bbox_width, 1)
                 new_bbox_right = round(bbox[0] + end_proportion * bbox_width, 1)
 
-                logging.info(f"original bbox:, {bbox}")
+                logging.info(f"original bbox: {bbox}")
                 logging.info(f"adjusted bbox: {new_bbox_left, bbox[1], new_bbox_right, bbox[3]}")
                 masks.append({"top_left": [new_bbox_left, bbox[1]],
                             "bottom_right": [new_bbox_right, bbox[3]]})
