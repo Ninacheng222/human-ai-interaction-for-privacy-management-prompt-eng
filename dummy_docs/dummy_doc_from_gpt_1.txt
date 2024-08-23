@@ -1,0 +1,21 @@
+EMPLOYMENT AGREEMENT
+
+THIS AGREEMENT is made this 1st day of January, 2022, by and between XYZ Corporation, a corporation organized under the laws of the State of California, with its principal place of business at 1234 Main Street, Los Angeles, CA 90001 (hereinafter referred to as the "Company"), and John Doe, residing at 5678 Elm Street, San Francisco, CA 94101 (hereinafter referred to as the "Employee").
+
+1. EMPLOYMENT AND DUTIES: The Company hereby employs Employee, and Employee hereby accepts employment, as a Senior Software Engineer. Employee's duties shall include designing, coding, and debugging applications in various software languages.
+
+2. COMPENSATION: The Company shall pay Employee an annual salary of $120,000, payable in accordance with the Company's standard payroll practices.
+
+3. CONFIDENTIALITY: Employee agrees to keep confidential all non-public information concerning the Company which Employee acquires during the term of this Agreement.
+
+4. TERM: This Agreement shall commence on January 15, 2022, and shall continue until December 31, 2022, unless earlier terminated in accordance with the provisions of this Agreement.
+
+5. GOVERNING LAW: This Agreement shall be governed by and construed in accordance with the laws of the State of California.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first above written.
+
+XYZ CORPORATION
+By: Jane Smith, CEO
+
+EMPLOYEE
+John Doe, SSN: 123-45-6789

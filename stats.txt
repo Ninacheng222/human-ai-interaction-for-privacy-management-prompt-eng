@@ -1,0 +1,18 @@
+num_tempt: 
+1=init tempt; 
+2=1 turn user prompt
+
+budget, 2
+california, 2
+id_card, 2
+ss5, 1
+
+id, num_tempt
+0, 2
+1, 1
+2, 1
+3, 1
+4, 1
+5, 1
+6, 1
+
